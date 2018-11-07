@@ -17,11 +17,29 @@ peopleAlsoBought = 'http://localhost:3004';
 
 app.use(express.static(__dirname + '/client'));
 
-app.all('/api/symbol/0/day', (req, res) => {
+let stockPriceChartId = 0;
+app.all('/api/symbol/:stockPriceChartId/day', (req, res) => {
+  stockPriceChartId = req.params.stockPriceChartId;
   apiProxy.web(req, res, {target: stockPriceChart});
 });
 
-app.all('/api/volumes/symbols/4', (req, res) => {
+app.all('/api/symbol/:${stockPriceChartId + 1}/week', (req, res) => {
+  apiProxy.web(req, res, { target: stockPriceChart });
+});
+
+app.all('/api/symbol/:${stockPriceChartId + 2}/week', (req, res) => {
+  apiProxy.web(req, res, { target: stockPriceChart });
+});
+
+app.all('/api/symbol/:${stockPriceChartId + 3}/week', (req, res) => {
+  apiProxy.web(req, res, { target: stockPriceChart });
+});
+
+app.all('/api/symbol/:${stockPriceChartId + 4}/week', (req, res) => {
+  apiProxy.web(req, res, { target: stockPriceChart });
+});
+
+app.all('/api/volumes/symbols', (req, res) => {
   apiProxy.web(req, res, { target: priceVolumeChart });
 });
 
