@@ -12,13 +12,12 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: true}));
 // const stockPriceChart = 'http://localhost:3001',
 // priceVolumeChart = 'http://localhost:3002',
-const buyService = 'http://localhost:3005';
+const buyService = 'ec2-13-52-78-138.us-west-1.compute.amazonaws.com/5432';
 // peopleAlsoBought = 'http://localhost:3004';
 
 
 app.use(express.static(__dirname + '/client'));
 
-let stockPriceChartId = 0;
 // app.all('/api/symbol/:stockPriceChartId/day', (req, res) => {
 //   stockPriceChartId = req.params.stockPriceChartId;
 //   apiProxy.web(req, res, {target: stockPriceChart});
